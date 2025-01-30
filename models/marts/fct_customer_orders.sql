@@ -50,11 +50,6 @@ customer_order_history as (
         join customers
             on orders.customer_id = customers.customer_id
 
-    left outer join payments 
-    on orders.order_id = payments.order_id
-
-
-
     group by customers.customer_id, customers.full_name, customers.surname, customers.givenname
 
 ),
@@ -70,9 +65,9 @@ final as (
         first_order_date,
         order_count,
         total_lifetime_value,
-        payment_amount as order_value_dollars,
+        orders.order_value_dollars,
         orders.order_status as order_status,
-        payments.payment_status as payment_status
+        orders.payment_status as payment_status
 
     from orders
         join customers
