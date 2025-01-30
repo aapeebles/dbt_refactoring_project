@@ -9,6 +9,5 @@ transformed as(
         first_name as givenname,
         first_name || ' ' || last_name as full_name
     from source
-
-select * from transformed
 )
+select * from transformed
