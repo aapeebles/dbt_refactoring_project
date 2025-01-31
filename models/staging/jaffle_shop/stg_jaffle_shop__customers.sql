@@ -5,9 +5,8 @@ source as (
 transformed as(
     select 
         id as customer_id,
-        last_name as surname,
-        first_name as givenname,
-        first_name || ' ' || last_name as full_name
+        last_name as customer_last_name,
+        first_name as customer_first_name
     from source
 )
 select * from transformed
